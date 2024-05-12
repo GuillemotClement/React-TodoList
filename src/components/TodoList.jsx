@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem';
 import EditTodo from './EditTodo';
 
-function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo }){
+function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo, selectTodo }){
   //on vérifie que la liste contient au moins un élément
   // si la liste contient des élément alors on retourne des todo items
   //sinon on affiche un message qui indique que la todo ne contient rien
@@ -17,6 +17,7 @@ function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo }
           deleteTodo={ () => deleteTodo(todo.id)} 
           toggleTodo={ () => toggleTodo(todo.id)}
           editTodo={ () => toggleTodoEdit(todo.id)}
+          selectTodo={ () => selectTodo(todo.id)}
         /> 
       ))}
     </ul>

@@ -32,3 +32,11 @@ input{
     border: 2px solid var(--gray-light);
     padding: 10px 15px;
 }
+
+.selected{
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+}
+li{
+    cursor: pointer;
+}

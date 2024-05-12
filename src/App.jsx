@@ -19,6 +19,7 @@ function App() {
       done: false,
       //on ajoute un mode edition
       edit: false,
+      selected: false,
     }
     //on vient ajouter la nouvelle todo dans la liste
     setTodoList([...todoList, todo])
@@ -52,6 +53,16 @@ function App() {
     }) : todo ));
   }
 
+  function selectTodo(id){
+    setTodoList(todoList.map( todo => todo.id === id ? ({
+      ...todo,
+      selected: true
+    }) : ({
+      ...todo, 
+      selected: false
+    }) ));
+  }
+
   return (
     <div className="flex row justify-center align-center p20">
       <div className="card container p20">
@@ -64,6 +75,7 @@ function App() {
             toggleTodo={toggleTodo} 
             toggleTodoEdit={toggleTodoEdit}
             editTodo={editTodo}
+            selectTodo={selectTodo}
             />
       </div>
     </div>
