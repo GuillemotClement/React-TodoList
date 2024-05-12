@@ -1,6 +1,7 @@
-import { useState } from "react"
+import {useState } from "react"
 import AddTodo from "./components/AddTodo"
 import TodoList from "./components/TodoList"
+import themeContext from "./context/theme";
 
 
 function App() {
@@ -63,11 +64,23 @@ function App() {
     }) ));
   }
 
+  const [theme, setTheme]= useState('primary');
+
+  function handleChange(e){
+    setTheme(e.target.value);
+  }
+
   return (
+    <themeContext.Provider value={theme}>
     <div className="flex row justify-center align-center p20">
       <div className="card container p20">
-        <h1 className="mb20">Todo List</h1>
-        {/* on passe la nouvelle todo en propriété du composant */}
+        <h1 className="mb20 flex row justify-center align-center">
+          <span className="fill">Todo List</span>
+          <select value={theme} onChange={ handleChange}>
+            <option value="primary">Rouge</option>
+            <option value="secondary">Bleu</option>
+          </select>
+        </h1>
           <AddTodo addTodo={addTodo}/>
           <TodoList 
             todoList={ todoList } 
@@ -79,6 +92,7 @@ function App() {
             />
       </div>
     </div>
+    </themeContext.Provider>
   )
 }
 

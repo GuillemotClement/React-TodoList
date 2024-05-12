@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 //on récupére la todo du composant parent
 function AddTodo({ addTodo }){
@@ -35,7 +36,7 @@ function AddTodo({ addTodo }){
   return (
     <div className="flex row justify-center align-center mb20">
       <input type="text" placeholder="Ajouter une todo" className="mr15 fill" value={ value } onChange={ handleChange } onKeyDown={handleKeyDownEnter}/>
-      <button onClick={handleClick} className="btn btn-primary">Ajouter</button>
+      <Button text="Ajouter" onClick={handleClick}/>
     </div>
   )
 }

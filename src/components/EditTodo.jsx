@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 function EditTodo({ todo, editTodo, cancelEditTodo }){
   //on récupère la valeur de la todo
@@ -26,8 +27,8 @@ function EditTodo({ todo, editTodo, cancelEditTodo }){
   return (
     <div className="flex row justify-center align-center mb20">
       <input type="text" placeholder="Ajouter une todo" className="mr15 fill" value={ value } onChange={ handleChange } onKeyDown={handleKeyDownEnter}/>
-      <button onClick={handleClick} className="btn btn-primary mr15">Editer</button>
-      <button onClick={cancelEditTodo} className="btn btn-secondary">Annuler</button>
+      <Button onClick={handleClick} text="Editer" className="mr15"/>
+      <Button onClick={cancelEditTodo} text="Annuler" className="mr15"/>
     </div>
   )
 }
