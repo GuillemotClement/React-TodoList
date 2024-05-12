@@ -24,13 +24,19 @@ function App() {
     setTodoList([...todoList, todo])
   }
 
+  // nouvelle fonction qui permet de gérer la suppression
+  //on viendras transmettre la fonction jusqu'a composant enfant TodoItem
+  function deleteTodo(id){
+    setTodoList(todoList.filter(todo => todo.id !== id));
+  }
+
   return (
     <div className="flex row justify-center align-center p20">
       <div className="card container p20">
         <h1 className="mb20">Todo List</h1>
         {/* on passe la nouvelle todo en propriété du composant */}
           <AddTodo addTodo={addTodo}/>
-          <TodoList />
+          <TodoList todoList={ todoList } deleteTodo={deleteTodo}/>
       </div>
     </div>
   )
