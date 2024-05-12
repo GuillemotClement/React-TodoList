@@ -44,13 +44,27 @@ function App() {
     }) : todo));
   }
 
+  function editTodo(id, content){
+    setTodoList(todoList.map( todo => todo.id === id ? ({
+      ...todo,
+      edit: false,
+      content
+    }) : todo ));
+  }
+
   return (
     <div className="flex row justify-center align-center p20">
       <div className="card container p20">
         <h1 className="mb20">Todo List</h1>
         {/* on passe la nouvelle todo en propriété du composant */}
           <AddTodo addTodo={addTodo}/>
-          <TodoList todoList={ todoList } deleteTodo={deleteTodo} toggleTodo={toggleTodo} toggleTodoEdit={toggleTodoEdit}/>
+          <TodoList 
+            todoList={ todoList } 
+            deleteTodo={deleteTodo} 
+            toggleTodo={toggleTodo} 
+            toggleTodoEdit={toggleTodoEdit}
+            editTodo={editTodo}
+            />
       </div>
     </div>
   )
