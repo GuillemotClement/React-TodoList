@@ -1,13 +1,35 @@
+import { useState } from "react"
 import AddTodo from "./components/AddTodo"
 import TodoList from "./components/TodoList"
 
 
 function App() {
+
+  const [todoList, setTodoList] = useState([]);
+
+  function addTodo(content){
+    // on créer la nouvelle todo
+    const todo = {
+      //on jaoute un id pour identifier cette todo
+      //on utilise la méthode pour générer une chaine unique permettant d'identifier la todo
+      id: crypto.randomUUID(),
+      //on ajoute le contenu de la todo
+      content,
+      //par defaut, son etat est pas realiser car on vient se creer une nouvelle todo
+      done: false,
+      //on ajoute un mode edition
+      edit: false,
+    }
+    //on vient ajouter la nouvelle todo dans la liste
+    setTodoList([...todoList, todo])
+  }
+
   return (
     <div className="flex row justify-center align-center p20">
       <div className="card container p20">
         <h1 className="mb20">Todo List</h1>
-          <AddTodo />
+        {/* on passe la nouvelle todo en propriété du composant */}
+          <AddTodo addTodo={addTodo}/>
           <TodoList />
       </div>
     </div>

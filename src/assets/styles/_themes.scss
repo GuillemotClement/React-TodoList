@@ -26,3 +26,9 @@
 .text-primary{
     color: var(--primary);
 }
+
+input{
+    border-radius: 20px;
+    border: 2px solid var(--gray-light);
+    padding: 10px 15px;
+}
